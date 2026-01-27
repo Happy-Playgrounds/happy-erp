@@ -1,0 +1,5 @@
+company_one:
+  id: 1
+  company_name: "Example Happy Company"
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

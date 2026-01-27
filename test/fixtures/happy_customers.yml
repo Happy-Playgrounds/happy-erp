@@ -1,0 +1,10 @@
+customer_one:
+  id: 1
+  happy_company_id: 1
+  happy_customer_company_id: 1
+  customer_name: "Customer 1"
+  first_name: "Cust1"
+  business_phone: "555-123-4567"
+  email: "customer1@example.com"
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
