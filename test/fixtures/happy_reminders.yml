@@ -1,0 +1,32 @@
+reminder_one:
+  name: "Test Reminder 1"
+  content: "This is a reminder for testing Quotes!"
+  remindable_id: 1
+  remindable_type: HappyQuote
+  is_sent: false
+  reminder_date: <%= Date.today %>
+  user_id: 1
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+reminder_two:
+  name: "Test Reminder 2"
+  content: "This is a reminder for testing Customers!"
+  remindable_id: 1
+  remindable_type: HappyCustomer
+  is_sent: false
+  reminder_date: <%= Date.today %>
+  user_id: 1
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+reminder_three:
+  name: "Test Reminder 3"
+  content: "This is a reminder for testing Vendors!"
+  remindable_id: 1
+  remindable_type: HappyVendor
+  is_sent: false
+  reminder_date: <%= Date.today %>
+  user_id: 1
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

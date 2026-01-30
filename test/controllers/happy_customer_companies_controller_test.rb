@@ -56,7 +56,7 @@ class HappyCustomerCompaniesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to happy_customer_company_path(company)
   end
 
-    test "do not create company if it already exist" do
+  test "do not create company if it already exist" do
     post user_session_url, params: {user: {email: @user.email, password: '123456'}}
     post happy_customer_companies_path, params: {happy_customer_company: {company_name: "Test 51 Company"}}
     assert_no_difference "HappyCustomerCompany.count" do
@@ -76,8 +76,17 @@ class HappyCustomerCompaniesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to happy_customer_company_path(company)
   end
 
+  test "should not update company with invalid data" do
+    post user_session_url, params: {user: {email: @user.email, password: '123456'}}
+    company = HappyCustomerCompany.first
+    assert_no_changes -> {company.reload.company_name} do
+      patch happy_customer_company_path(company), params: {happy_customer_company: {company_name: ""}}
+    end
+    assert_match "Company not updated!", flash[:alert]
+  end
+
   #destroy
-  test "should redirect destroy when not logged in " do
+  test "should redirect destroy when not logged in" do
     company = happy_customer_companies(:company_one)
     
     assert_no_difference "HappyCustomerCompany.count" do
@@ -86,7 +95,7 @@ class HappyCustomerCompaniesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_url
   end
 
-  test "should destroy company when logged in " do
+  test "should destroy company when logged in" do
     post user_session_url, params: {user: {email: @user.email, password: '123456'}}
     company = happy_customer_companies(:company_one)
   
