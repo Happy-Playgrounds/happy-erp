@@ -1,0 +1,11 @@
+category_one:
+    id: 1
+    happy_company_id: 1
+    happy_profit_center_id: 1
+    happy_vendor_id: 1
+    category: "Replacements"
+    user_id: 1
+    user_id_update: 1
+    active: true
+    created_at: <%= Time.zone.now %>
+    updated_at: <%= Time.zone.now %>

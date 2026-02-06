@@ -1,0 +1,47 @@
+product_one:
+  id: 1
+  happy_company_id: 1
+  happy_category_id: 1
+  happy_vendor_id: 1
+  happy_vendor_pricelist_id: 1
+  part_number: "0713488"
+  description: "BTM RAIL 12FT RAMP H RAIL"
+  pricelist_name: "REPLACE"
+  list_price: 109.52
+  weight: 0.00
+  ipema_certified: false
+  cpsc_certified: false
+  csa_certified: false
+  astm_certified: false
+  purchase_discount: 0.35
+  dealer_cost: 71.19
+  weighted_average_cost: 0.00
+  user_id: 1
+  user_id_update: 1
+  active: true
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+product_two:
+  id: 2
+  happy_company_id: 1
+  happy_category_id: 1
+  happy_vendor_id: 2
+  happy_vendor_pricelist_id: 1
+  part_number: "ZZCH7085"
+  description: "6ft CATWALK"
+  pricelist_name: "REPLACE"
+  list_price: 2896.75
+  weight: 0.00
+  ipema_certified: false
+  cpsc_certified: false
+  csa_certified: false
+  astm_certified: false
+  purchase_discount: 0.35
+  dealer_cost: 71.19
+  weighted_average_cost: 0.00
+  user_id: 1
+  user_id_update: 1
+  active: true
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

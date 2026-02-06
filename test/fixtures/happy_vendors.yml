@@ -1,0 +1,41 @@
+happy_vendor_one:
+  id: 1
+  happy_company_id: 1
+  vendor_name: "Vendor 1"
+  first_name: "joe"
+  last_name: "bob"
+  title: "owner"
+  email: "joe.bob@vendor1.com"
+  taxable: true
+  business_phone: "555-123-4567"
+  mailing_street1: "12345 S Bloom Lane."
+  mailing_city: "tulsa"
+  mailing_state: "OK"
+  mailing_zipcode: "74133"
+  minority: false
+  vendor1099: true
+  balance: 0.00
+  active: true
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+happy_vendor_two:
+  id: 2
+  happy_company_id: 1
+  vendor_name: "Vendor 2"
+  first_name: "tom"
+  last_name: "smith"
+  title: "owner"
+  email: "tom.smith@vendor2.com"
+  taxable: true
+  business_phone: "555-555-4567"
+  mailing_street1: "54321 N Tusk Lane."
+  mailing_city: "tulsa"
+  mailing_state: "OK"
+  mailing_zipcode: "74137"
+  minority: false
+  vendor1099: true
+  balance: 0.00
+  active: true
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

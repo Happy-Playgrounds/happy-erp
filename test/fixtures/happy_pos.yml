@@ -1,0 +1,33 @@
+Po_one:
+  id: 1
+  happy_company_id: 1
+  happy_customer_id: 1
+  happy_vendor_id: 1
+  happy_quote_id: 1
+  number: 1
+  sub: 0
+  quote_date: <%= Time.zone.now %>
+  order_date: <%= Time.zone.now %>
+  fob: "LTL Carrier"
+  terms: "Net 30 dats"
+  estimated_delivery_date: <%= Time.zone.now %>
+  shipping_street1: "2345 S. Street Ave"
+  shipping_city: "Place"
+  shipping_state: "OK"
+  shipping_zipcode: "12345"
+  mailing_street1: "2345 S. Street Ave"
+  mailing_city: "Place"
+  mailing_state: "OK"
+  shipping_amount: 15.00
+  price: 324.00
+  item_total: 23.00
+  total: 532.00
+  order_subtotal: 123.00
+  adjustment_total: 532.00
+  shipment_total: 32.00
+  included_tax_total: 532.00
+  tax_rate: 9.750
+  user_id: 1
+  user_id_add: 1
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
