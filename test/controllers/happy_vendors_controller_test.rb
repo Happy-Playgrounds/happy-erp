@@ -48,6 +48,15 @@ class HappyVendorsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+    test "should display vendor reminders if they exist" do
+    vendor = HappyVendor.first
+    silence_stream(STDOUT) do 
+      get happy_vendor_path(vendor)
+    end
+    assert_response :success
+    assert_select "button", text: "View Vendor Reminders"
+  end
+
   #edit
   test "should show edit page" do
     vendor = HappyVendor.first

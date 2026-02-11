@@ -72,6 +72,16 @@ class HappyQuotesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "application/pdf; charset=utf-8", response.content_type
   end
 
+  test "should display quote reminders if they exist" do
+    quote = HappyQuote.first
+    silence_stream(STDOUT) do 
+      get happy_quote_path(quote)
+    end
+    assert_response :success
+    assert_select "button", text: "View Quote Reminders"
+  end
+
+
   #edit
   test "should show edit quote page" do
     quote = HappyQuote.first 
