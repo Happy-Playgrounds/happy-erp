@@ -194,9 +194,9 @@ end
   		pdf.move_cursor_to pdf.bounds.height - 60
                 pdf.text_box "Happy Playgrounds, LLC", :at => [address_x,  pdf.cursor]
   		pdf.move_down lineheight_y   
-  		pdf.text_box "8601 South Oxford Avenue", :at => [address_x,  pdf.cursor]
+  		pdf.text_box "7170 S Braden Ave Suite 195", :at => [address_x,  pdf.cursor]
   		pdf.move_down lineheight_y   
-  		pdf.text_box "Tulsa, OK 74137", :at => [address_x,  pdf.cursor]
+  		pdf.text_box "Tulsa, OK 74136", :at => [address_x,  pdf.cursor]
   		pdf.move_down lineheight_y   
   		pdf.text_box "(918) 851-9518", :at => [address_x,  pdf.cursor]
   		pdf.move_down lineheight_y   

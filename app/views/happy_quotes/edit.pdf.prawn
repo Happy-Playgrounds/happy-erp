@@ -204,9 +204,9 @@ end
         pdf.bounding_box [pdf.bounds.left, pdf.bounds.top], :width  => pdf.bounds.width do
   pdf.text_box "Happy Playgrounds, LLC", :at => [address_x,  pdf.cursor]
   pdf.move_down lineheight_y
-  pdf.text_box "8601 South Oxford Avenue", :at => [address_x,  pdf.cursor]
+  pdf.text_box "7170 S Braden Ave Suite 195", :at => [address_x,  pdf.cursor]
   pdf.move_down lineheight_y
-  pdf.text_box "Tulsa, OK 74137", :at => [address_x,  pdf.cursor]
+  pdf.text_box "Tulsa, OK 74136", :at => [address_x,  pdf.cursor]
   pdf.move_down lineheight_y + 2
   pdf.text_box "Oklahoma: (918) 992-3278", :at => [address_x,  pdf.cursor]
   pdf.move_down lineheight_y
