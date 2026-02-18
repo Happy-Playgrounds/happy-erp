@@ -1,0 +1,22 @@
+company_one:
+ id: 1
+ happy_company_id: 1
+ company_name: "test 1 company"
+ created_at: <%= Time.zone.now %>
+ updated_at: <%= Time.zone.now %>
+
+company_two:
+ id: 2
+ happy_company_id: 1
+ company_name: "test 2 company"
+ created_at: <%= Time.zone.now %>
+ updated_at: <%= Time.zone.now %>
+
+<% (3..50).each do |i| %>
+company_<%= i %>:
+ id: <%= i%>
+ happy_company_id: 1
+ company_name: "test <%= i %> company"
+ created_at: <%= Time.zone.now %>
+ updated_at: <%= Time.zone.now %>
+<% end %>

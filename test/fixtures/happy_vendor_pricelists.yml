@@ -1,0 +1,15 @@
+happy_pricelist_one:
+  id: 1
+  happy_company_id: 1
+  happy_profit_center_id: 1
+  happy_vendor_id: 1
+  pricelist_name: "REPLACE"
+  received_date: <%= Time.zone.now %>
+  effective_date: <%= Time.zone.now %>
+  purchase_discount: 0.25
+  sell_discount: 0.00
+  user_id: 1
+  user_id_update: 1
+  active: true
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

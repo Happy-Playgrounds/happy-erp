@@ -1,50 +1,40 @@
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <% if @happyQuoteReminder %>
-        <p>Hi &nbsp;<%= @firstName %>, </p>
-        <p>You requested the following Happy Quote reminder today: </p>
-        <p>Quote #:&nbsp;&nbsp;<%= @quoteNumber.number %>-<%= @quoteNumber.sub %></p> 
-        <p>Name:&nbsp;&nbsp;<%= @happyQuoteReminder.name %></p> 
-        <p>Content:&nbsp;&nbsp;<%= @happyQuoteReminder.content %>!</p> 
-        <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
-        <blockquote><%= @customerQuote %></blockquote> 
-        <!-- <p>Reminder date: <%#= @happyReminder.reminder_date.strftime("%A, %B %-d, %Y")%></p> -->
-      <% end %>
-    <% end %>
-    <% if @happyProjectReminder %>
-      <% @happyProjectReminder.each do |projectReminder| %>
-        <p>Hi &nbsp;<%= @firstName %>, </p>
-        <p>You requested the following Happy Project reminder today: </p>
-        <p>Name:&nbsp;&nbsp;<%= projectReminder.name %></p> 
-        <p>Content:&nbsp;&nbsp;<%= projectReminder.content %>!</p> 
-        <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
-        <blockquote><%= @customerQuote %></blockquote> 
-      <% end %>
-    <% end %>
-    <% if @happyCustomerReminder %>
-      <% @happyCustomerReminder.each do |customerReminder| %>
-        <p>Hi &nbsp;<%= @firstName %>, </p>
-        <p>You requested the following Happy Customer reminder today: </p>
-        <p>Name:&nbsp;&nbsp;<%= customerReminder.name %></p> 
-        <p>Content:&nbsp;&nbsp;<%= customerReminder.content %>!</p> 
-        <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
-        <blockquote><i>"<%= @customerQuote %>"</i></blockquote> 
-      <% end %>
-    <% end %>
-    <% if @happyVendorReminder %>
-      <% @happyVendorReminder.each do |vendorReminder| %>
-        <p>Hi &nbsp;<%= @firstName %>, </p>
-        <p>You requested the following Happy Vendor reminder today: </p>
-        <p>Name:&nbsp;&nbsp;<%= vendorReminder.name %></p> 
-        <p>Content:&nbsp;&nbsp;<%= vendorReminder.content %>!</p> 
-        <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
-        <blockquote><%= @customerQuote %></blockquote> 
-      <% end %>
-    <% end %>
-  </body>
-</html>
+<% if @happyQuoteReminder %>
+    <p>Hi &nbsp;<%= @firstName %>, </p>
+    <p>You requested the following Happy Quote reminder today: </p>
+    <p>Quote #:&nbsp;&nbsp;<%= @quoteNumber.number %>-<%= @quoteNumber.sub %></p> 
+    <p>Name:&nbsp;&nbsp;<%= @happyQuoteReminder.first.name %></p> 
+    <p>Content:&nbsp;&nbsp;<%= @happyQuoteReminder.first.content %>!</p> 
+    <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
+    <blockquote><%= @customerQuote %></blockquote> 
+    <!-- <p>Reminder date: <%#= @happyReminder.reminder_date.strftime("%A, %B %-d, %Y")%></p> -->
+<% end %>
+<% if @happyProjectReminder %>
+  <% @happyProjectReminder.each do |projectReminder| %>
+    <p>Hi &nbsp;<%= @firstName %>, </p>
+    <p>You requested the following Happy Project reminder today: </p>
+    <p>Name:&nbsp;&nbsp;<%= projectReminder.name %></p> 
+    <p>Content:&nbsp;&nbsp;<%= projectReminder.content %>!</p> 
+    <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
+    <blockquote><%= @customerQuote %></blockquote> 
+  <% end %>
+<% end %>
+<% if @happyCustomerReminder %>
+  <% @happyCustomerReminder.each do |customerReminder| %>
+    <p>Hi &nbsp;<%= @firstName %>, </p>
+    <p>You requested the following Happy Customer reminder today: </p>
+    <p>Name:&nbsp;&nbsp;<%= customerReminder.name %></p> 
+    <p>Content:&nbsp;&nbsp;<%= customerReminder.content %>!</p> 
+    <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
+    <blockquote><i>"<%= @customerQuote %>"</i></blockquote> 
+  <% end %>
+<% end %>
+<% if @happyVendorReminder %>
+  <% @happyVendorReminder.each do |vendorReminder| %>
+    <p>Hi &nbsp;<%= @firstName %>, </p>
+    <p>You requested the following Happy Vendor reminder today: </p>
+    <p>Name:&nbsp;&nbsp;<%= vendorReminder.name %></p> 
+    <p>Content:&nbsp;&nbsp;<%= vendorReminder.content %>!</p> 
+    <p><img src="https://happypg-prod.s3.amazonaws.com/happy-cheer.png" width="80" height="97" alt="Happy Cheers" />Have a Happy Day!</p> 
+    <blockquote><%= @customerQuote %></blockquote> 
+  <% end %>
+<% end %>

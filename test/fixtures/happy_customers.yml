@@ -1,0 +1,35 @@
+customer_one:
+  id: 1
+  happy_company_id: 1
+  happy_customer_company_id: 1
+  customer_name: "Customer 1"
+  first_name: "Cust1"
+  last_name: "LastName"
+  business_phone: "555-123-4567"
+  title: "Title"
+  email: "customer1@example.com"
+  mailing_street1: "2345 S. Street Ave"
+  mailing_city: "Place"
+  mailing_state: "OK"
+  mailing_zipcode: "12345"
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+<% (2..50).each do |i| %>
+customer_<%= i %>:
+ id: <%= i %>
+ happy_company_id: 1
+ happy_customer_company_id: 1
+ customer_name: "Customer <%= i %>"
+ first_name: "Cust<%= i %>"
+ last_name: "LastName"
+ business_phone: "555-123-4567"
+ title: "Title"
+ email: "customer<%= i %>.@example.com"
+ mailing_street1: "2345 S. Street Ave"
+ mailing_city: "Place"
+ mailing_state: "OK"
+ mailing_zipcode: "12345"
+ created_at: <%= Time.zone.now %>
+ updated_at: <%= Time.zone.now %>
+<% end %>

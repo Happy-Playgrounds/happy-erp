@@ -1,0 +1,63 @@
+quote_line_one:
+  id: 1
+  happy_quote_id: 1
+  position: 1
+  product_id: "ZZXX0090"
+  description: "ENERGI STATION #2 PULLING,BACK ANGLE BAR & HURDLE"
+  unit_of_measure: "EA"
+  quantity: 1.00
+  taxable: true
+  tax_amount: 0.00
+  shipping_amount: 0.00
+  list_price: 0.00
+  discount: 0.00
+  unit_price: 4096.00
+  msrp_amount: 0.00
+  total_line_amount: 4096.00
+  adjustments: 0.00
+  happy_vendor_id: 1
+  vendor_name: 1
+  buyout_unit_price: 3072.00
+  margin: 25.00
+  total_cost_amount: 3072.00
+  weight: 306.79
+  purchase_discount: 0.26
+  sell_discount: 0.0
+  user_id: 1
+  user_id_add: 1
+  user_id_update: 1
+  active: false
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+quote_line_two:
+  id: 2
+  happy_quote_id: 1
+  position: 2
+  product_id: "ZZCH7085"
+  description: "6ft CATWALK"
+  unit_of_measure: "EA"
+  quantity: 1.00
+  taxable: true
+  tax_amount: 0.00
+  shipping_amount: 0.00
+  list_price: 0.00
+  discount: 0.00
+  unit_price: 10000.00
+  msrp_amount: 0.00
+  total_line_amount: 10000.00
+  adjustments: 0.00
+  happy_vendor_id: 2
+  vendor_name: 2
+  buyout_unit_price: 2700.00
+  margin: 14.00
+  total_cost_amount: 2700.00
+  weight: 120.79
+  purchase_discount: 0.14
+  sell_discount: 0.0
+  user_id: 1
+  user_id_add: 1
+  user_id_update: 1
+  active: false
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

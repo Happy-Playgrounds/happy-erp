@@ -443,9 +443,9 @@ include Reminder
     end
 
     def move
-     #params.each do |key,value|
-     #   Rails.logger.warn "Param #{key}: #{value}"
-     #end
+     params.each do |key,value|
+       Rails.logger.warn "Param #{key}: #{value}"
+     end
      puts "got in move" 
       # ** this works @happyquoteline=HappyQuoteLine.find 123
       #@happyquoteline=HappyQuoteLine.find 123

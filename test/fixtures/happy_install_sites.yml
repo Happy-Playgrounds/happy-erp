@@ -1,0 +1,47 @@
+install_site_one:
+  id: 1
+  happy_customer_id: 1
+  site_name: "Install site for Place"
+  description: "This is an install site"
+  street1: "12345 S. Apple Ave"
+  city: "Tulsa"
+  state: "OK"
+  postal_code: 74135
+  site_type: "Business"
+  length: 50.000
+  width: 25.000
+  height: 15.000
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+install_site_two:
+  id: 2
+  happy_customer_id: 1
+  site_name: "Install site for another place"
+  description: "This is an install site"
+  street1: "54321 S. Orange St"
+  city: "Tulsa"
+  state: "OK"
+  postal_code: 74135
+  site_type: "Business"
+  length: 20.000
+  width: 35.000
+  height: 20.000
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
+
+install_site_three:
+  id: 3
+  happy_customer_id: 2
+  site_name: "Install site for third place"
+  description: "This is an install site again"
+  street1: "67564 S. Orange St"
+  city: "Tulsa"
+  state: "OK"
+  postal_code: 74135
+  site_type: "School"
+  length: 21.000
+  width: 27.000
+  height: 12.000
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>

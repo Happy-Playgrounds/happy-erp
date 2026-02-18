@@ -65,7 +65,7 @@ class UserMailer < ApplicationMailer
     # attach ICS file
     #mail.attachments["#{@subject}.ics"] = { mime_type: 'application/ics', content: ical.to_ical }
     # mail.attachments["#{@subject}.ics"] = { mime_type: 'text/calendar', content: ical.to_ical }
-     mail.attachments["#{@subject}.ics"] = { mime_type: 'text/calendar; method=REQUEST', content: ical.to_ical }
+     mail.attachments["#{@subject}.ics"] = { mime_type: 'text/calendar; method=REQUEST', content: ical }
 
     mail to: @user.email,
          from: 'Happy Reminder from Happy Playgrounds <admin@happyplaygrounds.com>',

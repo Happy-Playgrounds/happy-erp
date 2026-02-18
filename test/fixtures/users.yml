@@ -1,0 +1,15 @@
+one:
+ id: 1
+ username: "User 1"
+ email: test@example.com
+ encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+ created_at: <%= Time.zone.now %>
+ admin: true
+
+two:
+ id: 2
+ username: "User 2"
+ email: test2@example.com
+ encrypted_password: <%= Devise::Encryptor.digest(User, '123456') %>
+ created_at: <%= Time.zone.now %>
+ admin: false
