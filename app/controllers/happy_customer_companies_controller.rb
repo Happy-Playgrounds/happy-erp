@@ -6,7 +6,7 @@ class HappyCustomerCompaniesController < ApplicationController
     @search = params.fetch(:search, {}).permit(:company_name)
     @name = @search[:company_name].to_s.strip
 
-    @companies = HappyCustomerCompany.order(:company_name)
+    @companies = HappyCustomerCompany.active.order(:company_name)
     if @name.present?
       @companies = @companies.where("company_name ILIKE ?", "%#{@name}%")
     end

@@ -7,6 +7,9 @@ class HappyCustomerCompany < ApplicationRecord
   has_many :happy_customers, dependent: :nullify
   has_many :happy_quotes, through: :happy_customers
 
+  # Scope
+  scope :active, -> { where(active: true) }
+
   # Normalization (for duplicate prevention)
   before_validation :normalize_name
 
