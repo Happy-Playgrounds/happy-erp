@@ -31,6 +31,7 @@ prawn_document(filename: test, disposition: "attachement") do |pdf|
         # header
       pdf.bounding_box [pdf.bounds.left, pdf.bounds.top], :width  => pdf.bounds.width do
           
+        pdf.text_box "# " + @happyquote.number.to_s + "-" + @happyquote.sub.to_s, size: 9, align: :right
         pdf.text "PLAYWORLD FREIGHT QUOTE FORM", align: :center, size: 12, style: :bold
         
         #underline (<u> tag looks a bit off )
