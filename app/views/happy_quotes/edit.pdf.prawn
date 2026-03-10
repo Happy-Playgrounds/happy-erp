@@ -286,29 +286,23 @@ end
   last_measured_y = pdf.cursor
 
 
-  pdf.text_box "BILL TO:", :at => [address_x,  pdf.cursor], :style => :bold
-  pdf.text_box "SHIP TO:", :at => [quote_header_x,  pdf.cursor], :style => :bold
-  pdf.move_down lineheight_y
-  pdf.text_box @happyquote.happy_customer.customer_name, :at => [address_x,  pdf.cursor]
-  pdf.text_box @happyquote.shipping_street1, :at => [quote_header_x,  pdf.cursor]
-  pdf.move_down lineheight_y
-  pdf.text_box "Attention: " + @happyquote.happy_customer.first_name + " " + @happyquote.happy_customer.last_name, :at => [address_x,  pdf.cursor]
-  if @happyquote.shipping_street2.blank? 
-  	pdf.text_box @happyquote.shipping_city + ", " + @happyquote.shipping_state + " " + @happyquote.shipping_zipcode, :at => [quote_header_x,  pdf.cursor]
-  else
-  	pdf.text_box @happyquote.shipping_street2, :at => [quote_header_x,  pdf.cursor]
-  end
-  pdf.move_down lineheight_y
-  pdf.text_box @happyquote.mailing_street1, :at => [address_x,  pdf.cursor]
-  if !@happyquote.shipping_street2.blank? 
-  	pdf.text_box @happyquote.shipping_city + ", " + @happyquote.shipping_state + " " + @happyquote.shipping_zipcode, :at => [quote_header_x,  pdf.cursor]
-  end
-  if !@happyquotemailing_street2.blank? 
-  	pdf.move_down lineheight_y
-  	pdf.text_box @happyquote.mailing_street2, :at => [address_x,  pdf.cursor]
-  end
-  pdf.move_down lineheight_y
-  pdf.text_box @happyquote.mailing_city + ", " + @happyquote.mailing_state + " " + @happyquote.mailing_zipcode, :at => [address_x,  pdf.cursor]
+  #pdf.text "BILL TO:", :style => :bold
+  bill_lines = []
+  bill_lines << "<b>BILL TO</b>:"
+  bill_lines << @happyquote.happy_customer.customer_name
+  bill_lines << "Attention: #{@happyquote.happy_customer.first_name} #{@happyquote.happy_customer.last_name}"
+  bill_lines << @happyquote.mailing_street1 if @happyquote.mailing_street1.present?
+  bill_lines << @happyquote.mailing_street2 if @happyquote.mailing_street2.present?
+  bill_lines << "#{@happyquote.mailing_city}, #{@happyquote.mailing_state} #{@happyquote.mailing_zipcode}"
+  pdf.text_box(bill_lines.join("\n"), :at => [address_x,  pdf.cursor],inline_format: true)
+
+  ship_lines = []
+  ship_lines << "<b>SHIP TO:</b>"
+  ship_lines << @happyquote.shipping_street1 if @happyquote.shipping_street1.present?
+  ship_lines << @happyquote.shipping_street2 if @happyquote.shipping_street2.present?
+  ship_lines << "#{@happyquote.shipping_city}, #{@happyquote.shipping_state} #{@happyquote.shipping_zipcode}"
+  pdf.text_box(ship_lines.join("\n"), :at => [quote_header_x,  pdf.cursor], inline_format: true)
+
 
   #pdf.move_cursor_to 37.0 # was 53 no idea why had to hardcode was pdf.move_cursor_to last_measured_y
   #pdf.move_up 50
