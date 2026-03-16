@@ -34,6 +34,7 @@
         <th>Internal Notes</th>
         <th>External Notes</th>
         <th>PO Notes</th>
+        <th>Project Title</th>
         <th class="text-center text-nowrap">Actions</th>
       </tr>
     </thead>
@@ -54,6 +55,9 @@
           </td>
           <td class="notes-cell" title="<%= quote.special_instructions.to_s %>">
               <%= quote.special_instructions.present? ? simple_format(h(quote.special_instructions)) : "&nbsp;".html_safe %>
+          </td>
+          <td class="notes-cell" title="<%= quote.project_title.to_s %>">
+              <%= quote.project_title.present? ? simple_format(h(quote.project_title)) : "&nbsp;".html_safe %>
           </td>
 
       <td class="text-end">

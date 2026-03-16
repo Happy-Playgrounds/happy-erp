@@ -130,6 +130,13 @@
   </div>
 </div>
 
+<% if @happyquote.project_title.present? %>
+<div class="row">
+  <div class="text-center">
+    <h5><%= @happyquote.project_title %></h5>
+  </div>
+</div>
+<%end%>
 <div class="row bg-secondary">
   <div class="col-2 border">
     <b>Part Number</b>

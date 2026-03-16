@@ -537,7 +537,7 @@ private
    :mailing_street1, :mailing_street2, :mailing_city, :mailing_state, :mailing_zipcode,
    :special_instructions, :internal_notes, :external_notes,:user_id,
    :tax_override, :tax_rate, :additional_tax_total,:discount_override,
-   :discount_total, :user_name, :included_tax_total,
+   :discount_total, :user_name, :included_tax_total, :project_title,
     happy_quote_lines_attributes: [:id, :product_id,
      :description,
      :color,
