@@ -12,6 +12,9 @@
   <% else %>
       <h2>Happy Quote </h2>
   <% end %>
+  <% if params[:customer_id] %>
+     <%= link_to 'New Quote', new_happy_quote_path(happy_customer_id: params[:customer_id]) %> 
+  <% end %>
   <br>
   <div class="table-responsive" id="quotes-table">
     <table class="table table-striped align-middle table-fixed">
