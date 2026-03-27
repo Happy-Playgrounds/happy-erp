@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_24_144209) do
+ActiveRecord::Schema[7.1].define(version: 2026_03_13_203634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -677,6 +677,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_24_144209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lock_version", default: 0
+    t.string "project_title"
     t.index ["happy_customer_id"], name: "index_happy_quotes_on_happy_customer_id"
     t.index ["id"], name: "index_happy_quotes_on_id", unique: true
     t.index ["number"], name: "index_happy_quotes_on_number"
