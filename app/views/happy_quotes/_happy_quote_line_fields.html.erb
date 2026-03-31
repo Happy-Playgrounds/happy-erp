@@ -55,7 +55,7 @@
     </div>
     <div class="col-md-2">
       <%= f.input :buyout_unit_price, as: :currency,  input_html: { data: { 'total-target': 'buyout', 'grand-target': 'buyout', 'product-target': 'buyout', action: 'total#recalculate grand#calculate' },value: number_with_precision(f.object.buyout_unit_price, precision: 2) } %>
-      <%= f.input :cost_override, label: "Overide Cost", as: :boolean %>
+      <%= f.input :cost_override, label: "Override Cost", as: :boolean %>
     </div>
     <div class="col-md-2">
       <%= f.input :total_cost_amount, as: :currency, input_html: { data: { 'product-target': 'totalCost', 'total-target': 'totalCost', 'grand-target': 'totalCost' }, class: "commanumber total_cost_amount", readonly: true, tabindex: -1 } %> 
