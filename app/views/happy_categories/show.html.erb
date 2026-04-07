@@ -30,4 +30,5 @@
     </table>
   </div>
   <%= paginate @happy_products, window: 2%>
+  <%= link_to "Back to results", session[:last_search_url] || happy_categories_path %>
 </div>

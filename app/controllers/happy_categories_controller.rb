@@ -12,10 +12,8 @@ class HappyCategoriesController < ApplicationController
     .group("happy_categories.id")
     .order(:category).page(params[:page])
 
-    if @search.present? and @search["happy_vendor_id"].present?
-    end
-
     if @search.present?
+      session[:last_search_url] = request.fullpath
       @name = @search["category_name"]
       if @search["happy_vendor_id"].present?
           @default_vendor = @search["happy_vendor_id"]
