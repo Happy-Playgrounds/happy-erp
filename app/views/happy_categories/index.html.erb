@@ -21,7 +21,7 @@
             <th>Product Category</th>
 
             <th style="width:130px;">Product Count</th>
-            <% if current_user.admin? and (current_user.id == 1 or current_user.id == 11)%>
+            <% if @is_admin %>
               <th></th>
             <%end%>
         </tr>
@@ -32,8 +32,8 @@
                 <td><%= happy_category.id %></td>
                 <td><%= link_to happy_category.category, happy_category %></td>
 
-                <td><%= HappyProduct.where("happy_category_id =?", happy_category.id).count%></td>
-                <% if current_user.admin? and (current_user.id == 1 or current_user.id == 11)%>
+                <td><%= happy_category.product_count%></td>
+                <% if @is_admin %>
                   <td class="text-end" style="white-space: nowrap;">
                     <%= link_to "Edit", edit_happy_category_path(happy_category) %>
                   </td>
@@ -44,7 +44,7 @@
     </table>
   </div>
   <%= paginate @happy_categories, window: 2%>
-  <% if current_user.admin? and (current_user.id == 1 or current_user.id == 11)%>
+  <% if @is_admin %>
     <%= link_to 'New Category', new_happy_category_path %> 
   <%end%>
 

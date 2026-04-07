@@ -2,7 +2,7 @@
   <h2>Happy Products</h2>
      <%= simple_form_for :search, url: happy_products_path, method: "GET", html: { class: 'form-inline' } do |f| %>
      <%= f.input :part_number, required: false, input_html: {value: ""} %>
-     <%= f.input :description, input_html: {value: ""} %>
+     <%= f.input :description, input_html: {value: ""}, required: false %>
      <%= f.submit "Search", class: "btn btn-primary" %>
      <% end %>
   <br>

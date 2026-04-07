@@ -3,9 +3,14 @@ class HappyCategoriesController < ApplicationController
   def index
     @search = params["search"]
     @active_vendors = HappyVendor.where(id: HappyCategory.select(:happy_vendor_id)).order(:vendor_name)
+    @is_admin = current_user.admin? and (current_user.id == 1 or current_user.id == 11)
 
     @default_vendor = @active_vendors.find_by(vendor_name: "Playworld")&.id
-    @happy_categories = HappyCategory.where("happy_vendor_id = ?", @default_vendor).order("category").page(params[:page])
+    @happy_categories = HappyCategory.where("happy_categories.happy_vendor_id = ?", @default_vendor)
+    .left_joins(:happy_products)
+    .select("happy_categories.*, COUNT(happy_products.id) AS product_count")
+    .group("happy_categories.id")
+    .order(:category).page(params[:page])
 
     if @search.present? and @search["happy_vendor_id"].present?
     end
@@ -15,10 +20,16 @@ class HappyCategoriesController < ApplicationController
       if @search["happy_vendor_id"].present?
           @default_vendor = @search["happy_vendor_id"]
       end
-      @happy_categories = HappyCategory.where("happy_vendor_id = ? and category ILIKE ?", @default_vendor, "%#{@name}%").order("category").page(params[:page])
-    else
+      @happy_categories = HappyCategory.where("happy_categories.happy_vendor_id = ? and category ILIKE ?", @default_vendor, "%#{@name}%")
+      .left_joins(:happy_products)
+      .select("happy_categories.*, COUNT(happy_products.id) AS product_count")
+      .group("happy_categories.id")
+      .order(:category).page(params[:page])
     end
+
+
   end
+
 
   def show
     @happy_category = HappyCategory.find(params[:id])
