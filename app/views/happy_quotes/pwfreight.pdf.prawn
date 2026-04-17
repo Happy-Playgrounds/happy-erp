@@ -47,6 +47,7 @@ prawn_document(filename: test, disposition: "attachement") do |pdf|
         [{ text: "LTL FREIGHT QUOTES VALID FOR 6 MONTHS", callback: highlight}
         ], size: 12, align: :center, style: :bold)
         pdf.text "Truckload/Direct Ship Quotes Valid 30 DAYS", align: :center, size: 12, style: :bold
+        pdf.text "*All quoted rates are subject to change prior to formal booking confirmation due to potential volatility, rising fuel costs and carrier capacity.", align: :center, size: 8
         pdf.move_down 12
 
   $submitted_by = @username.gsub(/\./,' ')
