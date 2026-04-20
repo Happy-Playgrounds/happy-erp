@@ -4,6 +4,7 @@ class HappyQuoteLine < ApplicationRecord
   attr_accessor :quote_margin
   attr_accessor :cost_override
   #before_save :total_line_amount
+  before_validation :normalize_line_product_listing
   belongs_to :happy_quote
   acts_as_list scope: :happy_quote 
   belongs_to :happy_vendor
@@ -64,6 +65,12 @@ def unit_price_greater_buyout_unit_price
     errors.add(:unit_price, "must be greater that unit cost") unless
     ((buyout_unit_price <= unit_price) || cost_override == "1")
   end
+end
+
+def normalize_line_product_listing
+  self.description = description&.upcase
+  self.product_id = product_id&.upcase
+  self.color = color&.upcase
 end
 
 end
