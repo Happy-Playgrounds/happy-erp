@@ -70,6 +70,7 @@ end
 def normalize_line_product_listing
   self.description = description&.upcase
   self.product_id = product_id&.upcase
+  self.color = color&.upcase
 end
 
 end
