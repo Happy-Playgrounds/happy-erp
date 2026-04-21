@@ -2,7 +2,7 @@ class HappyCategoriesController < ApplicationController
 
   def index
     @search = params["search"]
-    @active_vendors = HappyVendor.where(id: HappyCategory.select(:happy_vendor_id)).order(:vendor_name)
+    @active_vendors = HappyVendor.where(id: HappyProduct.select(:happy_vendor_id)).order(:vendor_name)
     @is_admin = current_user.admin? and (current_user.id == 1 or current_user.id == 11)
 
     @default_vendor = @active_vendors.find_by(vendor_name: "Playworld")&.id
@@ -11,6 +11,8 @@ class HappyCategoriesController < ApplicationController
     .select("happy_categories.*, COUNT(happy_products.id) AS product_count")
     .group("happy_categories.id")
     .order(:category).page(params[:page])
+
+    @unassigned_products_count = 0
 
     if @search.present?
       session[:last_search_url] = request.fullpath
@@ -23,19 +25,24 @@ class HappyCategoriesController < ApplicationController
       .select("happy_categories.*, COUNT(happy_products.id) AS product_count")
       .group("happy_categories.id")
       .order(:category).page(params[:page])
+      @unassigned_products_count = HappyProduct.where(happy_vendor_id: @default_vendor, happy_category_id: nil).count
     end
-
-
+    
   end
 
 
   def show
-    @happy_category = HappyCategory.find(params[:id])
-    @happy_products = HappyProduct.where("happy_category_id=?", params[:id]).page params[:page]
-    @search = params["search"]
-    if @search.present?
-      @part = @search["part_number_or_description"]
-      @happy_products = HappyProduct.where("happy_category_id=? and (description ILIKE ? OR part_number ILIKE ?)", params[:id], "%#{@part}%", "%#{@part}%").order("happy_category_id").page(params[:page])
+    if params[:id] == "none"
+      @happy_category = "#{HappyVendor.find_by(id:params[:vendor_id]).vendor_name} - No Category"
+      @happy_products = HappyProduct.where(happy_vendor_id: params[:vendor_id], happy_category_id: nil).page(params[:page])
+    else
+      @happy_category = HappyCategory.find(params[:id]).category
+      @happy_products = HappyProduct.where("happy_category_id=?", params[:id]).page params[:page]
+      @search = params["search"]
+      if @search.present?
+        @part = @search["part_number_or_description"]
+        @happy_products = HappyProduct.where("happy_category_id=? and (description ILIKE ? OR part_number ILIKE ?)", params[:id], "%#{@part}%", "%#{@part}%").order("happy_category_id").page(params[:page])
+      end
     end
   end
 

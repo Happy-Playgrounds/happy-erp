@@ -27,6 +27,18 @@
         </tr>
         </thead>
         <tbody>
+          <%if @unassigned_products_count > 0 %>
+            <tr>
+              <td>N/A</td>
+              <td>None</td>
+              <td><%= @unassigned_products_count%></td>
+              <% if @is_admin %>
+                <td class="text-end" style="white-space: nowrap;">
+                    <%= link_to "Show", happy_category_path(id: "none", vendor_id: @default_vendor) %>
+                </td>
+                <%end%>
+            </tr>
+            <% end %>
             <% @happy_categories.each do |happy_category| %>
             <tr>
                 <td><%= happy_category.id %></td>
@@ -37,7 +49,7 @@
                   <td class="text-end" style="white-space: nowrap;">
                     <%= link_to "Edit", edit_happy_category_path(happy_category) %>
                   </td>
-                  <%end%>
+                <%end%>
             </tr>
             <% end %>
         </tbody>
